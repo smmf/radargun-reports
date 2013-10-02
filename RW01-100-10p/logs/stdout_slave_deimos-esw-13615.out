@@ -1,0 +1,182 @@
+/usr/java/jdk1.7.0_21/bin/java -server -Xmx1024M -Xms1024M -Dresolve.dns=false -Djgroups.timer.num_threads=4 -verbose:gc -Xmx5000M -Xms3000M -server -XX:+UseConcMarkSweepGC -XX:+AggressiveOpts -verbose:gc -XX:ParallelGCThreads=4 -XX:NewRatio=5 -XX:SurvivorRatio=2 -Dhazelcast.operation.thread.count=4 -Djava.net.preferIPv4Stack=true -Dlog4j.file.prefix=deimos-esw-13615 -Dbind.address= -Djgroups.bind_addr= -classpath /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/activation-1.1.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-beanutils-1.8.0.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-digester-2.0.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-logging-1.1.1.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-math-1.2.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/jboss-transaction-api-1.0.1.GA.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/jcommon-1.0.15.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/jfreechart-1.0.12.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/log4j-1.2.14.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/mail-1.4.2.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/conf org.radargun.Slave -master 127.0.0.1:2103
+--------------------------------------------------------------------------------
+PerNodeRollingFileAppender::Using file prefix:deimos-esw-13615
+ INFO  [main] {org.radargun.Slave} Attempting to connect to master 127.0.0.1:2103
+ INFO  [main] {org.radargun.Slave} Successfully established connection with master at: 127.0.0.1:2103
+Loading JARS from /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar
+ INFO  [pool-1-thread-1] {org.radargun.config.AnnotatedHelper} Loading JARS from /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar
+ INFO  [pool-1-thread-1] {org.radargun.config.AnnotatedHelper} Loading JARS from /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: DestroyWrapper {enforceMemoryThrashHold=true, exitBenchmarkOnSlaveFailure=false, heapDumpDir=null, memoryThreshold=95, runOnAllSlaves=true, slaves=null, useSmartClassLoading=true }
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} Received destroy cache wrapper request from master...
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} No cache wrapper deployed on this slave, nothing to do.
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} Before executing clear, memory looks like this: Memory - free: 2,928,638 kb - max:4,906,688 kb- total:2,944,000 kb
+[Full GC 15361K->3631K(2944000K), 0.0731810 secs]
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} After executing cleanup, memory looks like this: Memory - free: 2,935,311 kb - max:4,906,688 kb- total:2,944,064 kb
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: DestroyWrapper {enforceMemoryThrashHold=true, exitBenchmarkOnSlaveFailure=false, heapDumpDir=null, memoryThreshold=95, runOnAllSlaves=true, slaves=null, useSmartClassLoading=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: StartCluster {config=hzl3-repl-sync.xml, delayAfterFirstSlaveStarts=5.000 secs, delayBetweenStartingSlaves=0.500 secs, exitBenchmarkOnSlaveFailure=true, expectNumSlaves=null, mayFailOn=null, reachable=null, runOnAllSlaves=false, slaves=null, staggerSlaveStartup=true, useSmartClassLoading=true, validateCluster=true }
+ INFO  [pool-1-thread-1] {org.radargun.stages.StartClusterStage} Startup staggering, number of slaves to start is 4 This is the slave with index 0, not sleeping
+ INFO  [pool-1-thread-1] {org.radargun.stages.StartClusterStage} Ack master's StartCluster stage. Local address is: /127.0.0.1. This slave's index is: 0
+ INFO  [pool-1-thread-1] {org.radargun.utils.ClassLoadHelper} Creating newInstance org.radargun.cachewrappers.Hazelcast3Wrapper with classloader java.net.URLClassLoader@559d6246
+ INFO  [pool-1-thread-1] {org.radargun.cachewrappers.Hazelcast3Wrapper} Creating cache with the following configuration: hzl3-repl-sync.xml
+Oct 02, 2013 6:44:25 PM com.hazelcast.instance.DefaultAddressPicker
+INFO: Interfaces is disabled, trying to pick one address from TCP-IP config addresses: [127.0.0.1]
+Oct 02, 2013 6:44:25 PM com.hazelcast.instance.DefaultAddressPicker
+INFO: Picked Address[127.0.0.1]:5701, using socket ServerSocket[addr=/0.0.0.0,localport=5701], bind any local is true
+ INFO  [pool-1-thread-1] {com.hazelcast.system} [127.0.0.1]:5701 [dev] Hazelcast Community Edition 3.0.2 (20130906) starting at Address[127.0.0.1]:5701
+ INFO  [pool-1-thread-1] {com.hazelcast.system} [127.0.0.1]:5701 [dev] Copyright (C) 2008-2013 Hazelcast.com
+ INFO  [pool-1-thread-1] {com.hazelcast.instance.Node} [127.0.0.1]:5701 [dev] Creating MulticastJoiner
+ INFO  [pool-1-thread-1] {com.hazelcast.core.LifecycleService} [127.0.0.1]:5701 [dev] Address[127.0.0.1]:5701 is STARTING
+ INFO  [pool-1-thread-1] {com.hazelcast.cluster.TcpIpJoiner} [127.0.0.1]:5701 [dev] Connecting to possible member: Address[127.0.0.1]:5703
+ INFO  [pool-1-thread-1] {com.hazelcast.cluster.TcpIpJoiner} [127.0.0.1]:5701 [dev] Connecting to possible member: Address[127.0.0.1]:5702
+ INFO  [hz._hzInstance_1_dev.cached.thread-3] {com.hazelcast.nio.SocketConnector} [127.0.0.1]:5701 [dev] Connecting to /127.0.0.1:5703, timeout: 0, bind-any: true
+ INFO  [hz._hzInstance_1_dev.cached.thread-2] {com.hazelcast.nio.SocketConnector} [127.0.0.1]:5701 [dev] Connecting to /127.0.0.1:5702, timeout: 0, bind-any: true
+ INFO  [hz._hzInstance_1_dev.cached.thread-2] {com.hazelcast.nio.SocketConnector} [127.0.0.1]:5701 [dev] Could not connect to: /127.0.0.1:5702. Reason: SocketException[Connection refused to address /127.0.0.1:5702]
+ INFO  [hz._hzInstance_1_dev.cached.thread-3] {com.hazelcast.nio.SocketConnector} [127.0.0.1]:5701 [dev] Could not connect to: /127.0.0.1:5703. Reason: SocketException[Connection refused to address /127.0.0.1:5703]
+ INFO  [pool-1-thread-1] {com.hazelcast.cluster.TcpIpJoiner} [127.0.0.1]:5701 [dev] 
+
+
+Members [1] {
+	Member [127.0.0.1]:5701 this
+}
+
+ INFO  [pool-1-thread-1] {com.hazelcast.cluster.MulticastJoiner} [127.0.0.1]:5701 [dev] 
+
+
+Members [1] {
+	Member [127.0.0.1]:5701 this
+}
+
+ INFO  [pool-1-thread-1] {com.hazelcast.core.LifecycleService} [127.0.0.1]:5701 [dev] Address[127.0.0.1]:5701 is STARTED
+ INFO  [pool-1-thread-1] {org.radargun.cachewrappers.Hazelcast3Wrapper} Hazelcast configuration:Config{groupConfig=GroupConfig [name=dev, password=********], properties={hazelcast.logging.type=log4j}, networkConfig=NetworkConfig {publicAddress='null', port=5701, portCount=100, portAutoIncrement=true, join=JoinConfig{multicastConfig=MulticastConfig [enabled=true, multicastGroup=224.0.2.128, multicastPort=54327, multicastTimeToLive=32, multicastTimeoutSeconds=2, trustedInterfaces=[]], tcpIpConfig=TcpIpConfig [enabled=true, connectionTimeoutSeconds=5, members=[127.0.0.1], requiredMember=null], awsConfig=AwsConfig{enabled=false, region='us-east-1', securityGroupName='null', tagKey='null', tagValue='null', hostHeader='ec2.amazonaws.com', connectionTimeoutSeconds=5}}, interfaces=InterfacesConfig{enabled=false, interfaces=[]}, sslConfig=null, socketInterceptorConfig=null, symmetricEncryptionConfig=null}, mapConfigs={default=MapConfig{name='default', inMemoryFormat=BINARY', backupCount=5, asyncBackupCount=0, timeToLiveSeconds=0, maxIdleSeconds=0, evictionPolicy='NONE', evictionPercentage=0, maxSizeConfig=MaxSizeConfig{maxSizePolicy='PER_PARTITION', size=2147483647}, readBackupData=true, nearCacheConfig=null, mapStoreConfig=null, mergePolicyConfig='hz.ADD_NEW_ENTRY', wanReplicationRef=null, listenerConfigs=null, mapIndexConfigs=null, storageType=null}}, topicConfigs={}, queueConfigs={}, multiMapConfigs={}, executorConfigs={default=ExecutorConfig{name='default', poolSize=8, queueCapacity=2147483647}}, semaphoreConfigs={}, wanReplicationConfigs={}, listenerConfigs=[], partitionGroupConfig=PartitionGroupConfig{enabled=false, groupType=PER_MEMBER, memberGroupConfigs=[]}, managementCenterConfig=ManagementCenterConfig{enabled=false, url='null', updateInterval=5}, securityConfig=SecurityConfig{enabled=false, memberCredentialsConfig=CredentialsFactoryConfig{className='null', implementation=null, properties={}}, memberLoginModuleConfigs=[], clientLoginModuleConfigs=[], clientPolicyConfig=PermissionPolicyConfig{className='null', implementation=null, properties={}}, clientPermissionConfigs=[]}}
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [hz._hzInstance_1_dev.IO.thread-Acceptor] {com.hazelcast.nio.SocketAcceptor} [127.0.0.1]:5701 [dev] Accepting socket connection from /127.0.0.1:33058
+ INFO  [hz._hzInstance_1_dev.IO.thread-Acceptor] {com.hazelcast.nio.TcpIpConnectionManager} [127.0.0.1]:5701 [dev] 5701 accepted socket connection from /127.0.0.1:33058
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [hz._hzInstance_1_dev.IO.thread-Acceptor] {com.hazelcast.nio.SocketAcceptor} [127.0.0.1]:5701 [dev] Accepting socket connection from /127.0.0.1:55100
+ INFO  [hz._hzInstance_1_dev.IO.thread-Acceptor] {com.hazelcast.nio.TcpIpConnectionManager} [127.0.0.1]:5701 [dev] 5701 accepted socket connection from /127.0.0.1:55100
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [hz._hzInstance_1_dev.IO.thread-Acceptor] {com.hazelcast.nio.SocketAcceptor} [127.0.0.1]:5701 [dev] Accepting socket connection from /127.0.0.1:53974
+ INFO  [hz._hzInstance_1_dev.IO.thread-Acceptor] {com.hazelcast.nio.TcpIpConnectionManager} [127.0.0.1]:5701 [dev] 5701 accepted socket connection from /127.0.0.1:53974
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [hz._hzInstance_1_dev.cached.thread-3] {com.hazelcast.cluster.ClusterService} [127.0.0.1]:5701 [dev] 
+
+Members [4] {
+	Member [127.0.0.1]:5701 this
+	Member [127.0.0.1]:5702
+	Member [127.0.0.1]:5704
+	Member [127.0.0.1]:5703
+}
+
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members is the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.StartClusterStage} Successfully started cache wrapper on slave 0: org.radargun.cachewrappers.Hazelcast3Wrapper@27c2386
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: StartCluster {config=hzl3-repl-sync.xml, delayAfterFirstSlaveStarts=5.000 secs, delayBetweenStartingSlaves=0.500 secs, exitBenchmarkOnSlaveFailure=true, expectNumSlaves=null, mayFailOn=null, reachable=null, runOnAllSlaves=false, slaves=null, staggerSlaveStartup=true, useSmartClassLoading=true, validateCluster=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: ClusterValidation {exitBenchmarkOnSlaveFailure=false, partialReplication=false, replicationTimeSleep=2000, replicationTryCount=60, runOnAllSlaves=false, slaves=null, useSmartClassLoading=true }
+ INFO  [pool-1-thread-1] {com.hazelcast.partition.PartitionService} [127.0.0.1]:5701 [dev] Initializing cluster partition table first arrangement...
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClusterValidationStage} Number of caches that replicated here is 0
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClusterValidationStage} Replication test failed, 1 tries so far. Sleeping for 2 seconds and trying again.
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClusterValidationStage} Number of caches that replicated here is 3
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClusterValidationStage} Replication test successfully passed. partialReplication? false, replicationCount = 3
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClusterValidationStage} Confirm phase successful.
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: ClusterValidation {exitBenchmarkOnSlaveFailure=false, partialReplication=false, replicationTimeSleep=2000, replicationTryCount=60, runOnAllSlaves=false, slaves=[ 0, 1, 2, 3 ], useSmartClassLoading=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: StressTestWarmup {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=100, numOfThreads=4, numRequests=10000, numThreads=4, numberOfAttributes=100, numberOfRequests=10000, opsCountStatusLog=100000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=50, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=null, writePercentage=20, writeTxPercentage=20 }
+ INFO  [pool-1-thread-1] {org.radargun.stages.StressTestWarmupStage} Starting StressTestWarmupStage: StressTestWarmup {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=100, numOfThreads=4, numRequests=10000, numThreads=4, numberOfAttributes=100, numberOfRequests=10000, opsCountStatusLog=100000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=50, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=null, writePercentage=20, writeTxPercentage=20 }
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Using key generator org.radargun.stressors.StringKeyGenerator, param null
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Executing: StressTestStressor{opsCountStatusLog=100000, numRequests=10000, numEntries=100, entrySize=1000, writePercentage=20, numThreads=4, cacheWrapper=org.radargun.cachewrappers.Hazelcast3Wrapper@27c2386, nodeIndex=0, useTransactions=true, transactionSize=50, commitTransactions=true, durationMillis=60000}
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Cache wrapper info is: There are 8 entries in the cache.
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Started 4 stressor threads.
+ INFO  [Stressor-1] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 1. Elapsed time: 0.018 secs. Remaining: 59.982 secs. Total: 1 mins 0 secs
+[GC 259695K->11932K(2944064K), 0.0404900 secs]
+[GC 267996K->11369K(2944064K), 0.0320580 secs]
+[GC 267433K->10922K(2944064K), 0.0301330 secs]
+[GC 266986K->11098K(2944064K), 0.0314120 secs]
+[GC 267162K->11146K(2944064K), 0.0292810 secs]
+[GC 267210K->12411K(2944064K), 0.0302810 secs]
+[GC 268475K->9910K(2944064K), 0.0283720 secs]
+[GC 265974K->10459K(2944064K), 0.0322880 secs]
+ INFO  [Stressor-3] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 259474. Elapsed time: 20.018 secs. Remaining: 39.982 secs. Total: 1 mins 0 secs
+[GC 266523K->11012K(2944064K), 0.0310610 secs]
+[GC 267076K->11155K(2944064K), 0.0316620 secs]
+[GC 267219K->11180K(2944064K), 0.0309350 secs]
+[GC 267244K->11192K(2944064K), 0.0341170 secs]
+[GC 267256K->11193K(2944064K), 0.0291360 secs]
+[GC 267257K->11196K(2944064K), 0.0294040 secs]
+[GC 267260K->11189K(2944064K), 0.0298100 secs]
+[GC 267253K->12400K(2944064K), 0.0492850 secs]
+ INFO  [Stressor-1] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 541886. Elapsed time: 40.018 secs. Remaining: 19.982 secs. Total: 1 mins 0 secs
+[GC 268464K->9516K(2944064K), 0.0256190 secs]
+[GC 265580K->9934K(2944064K), 0.0248360 secs]
+[GC 265998K->9927K(2944064K), 0.0226070 secs]
+[GC 265991K->9503K(2944064K), 0.0258080 secs]
+[GC 265567K->9503K(2944064K), 0.0258990 secs]
+[GC 265567K->9913K(2944064K), 0.0241130 secs]
+[GC 265977K->9929K(2944064K), 0.0247240 secs]
+[GC 265993K->9909K(2944064K), 0.0235190 secs]
+[GC 265973K->9912K(2944064K), 0.0252180 secs]
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Finished generating report. Test duration is: 1 mins 0 secs
+ INFO  [pool-1-thread-1] {org.radargun.stages.StressTestWarmupStage} The warmup took: 60 seconds.
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: StressTestWarmup {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=100, numOfThreads=4, numRequests=10000, numThreads=4, numberOfAttributes=100, numberOfRequests=10000, opsCountStatusLog=100000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=50, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=null, writePercentage=20, writeTxPercentage=20 }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: ClearClusterStage {ClearCluster {exitBenchmarkOnSlaveFailure=false, runOnAllSlaves=false, slaves=[ 0 ], useSmartClassLoading=true }
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClearClusterStage} Before executing clear, memory looks like this: Memory - free: 2,915,364 kb - max:4,906,688 kb- total:2,944,064 kb
+[Full GC 30414K->5003K(2944064K), 0.1109110 secs]
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClearClusterStage} After executing cleanup, memory looks like this: Memory - free: 2,936,383 kb - max:4,906,688 kb- total:2,944,256 kb
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: ClearClusterStage {ClearCluster {exitBenchmarkOnSlaveFailure=false, runOnAllSlaves=false, slaves=[ 0 ], useSmartClassLoading=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: StressTest {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=100, numOfThreads=4, numRequests=10000000, numThreads=4, numberOfAttributes=100, numberOfRequests=10000000, opsCountStatusLog=500000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=100, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=true, writePercentage=10, writeTxPercentage=1 }
+ INFO  [pool-1-thread-1] {org.radargun.stages.StressTestStage} Starting StressTestStage: StressTest {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=100, numOfThreads=4, numRequests=10000000, numThreads=4, numberOfAttributes=100, numberOfRequests=10000000, opsCountStatusLog=500000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=100, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=true, writePercentage=10, writeTxPercentage=1 }
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Using key generator org.radargun.stressors.StringKeyGenerator, param null
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Executing: StressTestStressor{opsCountStatusLog=500000, numRequests=10000000, numEntries=100, entrySize=1000, writePercentage=10, numThreads=4, cacheWrapper=org.radargun.cachewrappers.Hazelcast3Wrapper@27c2386, nodeIndex=0, useTransactions=true, transactionSize=100, commitTransactions=true, durationMillis=60000}
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Cache wrapper info is: There are 0 entries in the cache.
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Started 4 stressor threads.
+ INFO  [Stressor-0] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 1. Elapsed time: 0.000 secs. Remaining: 1 mins 0 secs. Total: 1 mins 0 secs
+[GC 261195K->8289K(2944256K), 0.0278050 secs]
+[GC 264481K->8393K(2944256K), 0.0273330 secs]
+[GC 264585K->8025K(2944256K), 0.0233710 secs]
+[GC 264217K->8052K(2944256K), 0.0257090 secs]
+[GC 264244K->8571K(2944256K), 0.0232360 secs]
+[GC 264763K->7551K(2944256K), 0.0241370 secs]
+[GC 263743K->8700K(2944256K), 0.0238630 secs]
+ INFO  [Stressor-0] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 1288889. Elapsed time: 20.000 secs. Remaining: 40.000 secs. Total: 1 mins 0 secs
+[GC 264892K->7456K(2944256K), 0.0267980 secs]
+[GC 263648K->8223K(2944256K), 0.0252410 secs]
+[GC 264415K->8484K(2944256K), 0.0251100 secs]
+[GC 264676K->7528K(2944256K), 0.0241830 secs]
+[GC 263720K->8232K(2944256K), 0.0262780 secs]
+[GC 264424K->8488K(2944256K), 0.0254400 secs]
+[GC 264680K->7528K(2944256K), 0.0244490 secs]
+ INFO  [Stressor-3] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 2601600. Elapsed time: 40.000 secs. Remaining: 20.000 secs. Total: 1 mins 0 secs
+[GC 263720K->8694K(2944256K), 0.0268660 secs]
+[GC 264886K->7924K(2944256K), 0.0286480 secs]
+[GC 264116K->8156K(2944256K), 0.0231530 secs]
+[GC 264348K->8288K(2944256K), 0.0257910 secs]
+[GC 264480K->7518K(2944256K), 0.0257990 secs]
+[GC 263710K->8088K(2944256K), 0.0223450 secs]
+[GC 264280K->7891K(2944256K), 0.0250410 secs]
+ INFO  [Stressor-3] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 3906441. Elapsed time: 1 mins 0 secs. Remaining: 0.000 secs. Total: 1 mins 0 secs
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Finished generating report. Test duration is: 1 mins 0 secs
+ INFO  [pool-1-thread-1] {org.radargun.stages.StressTestStage} size info: There are 1600 entries in the cache., clusterSize:4, nodeIndex:0, cacheSize: -1
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: StressTest {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=100, numOfThreads=4, numRequests=10000000, numThreads=4, numberOfAttributes=100, numberOfRequests=10000000, opsCountStatusLog=500000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=100, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=true, writePercentage=10, writeTxPercentage=1 }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [main] {org.radargun.Slave} Master shutdown!
+ INFO  [Thread-0] {org.radargun.ShutDownHook} Slave process is being shutdown
+ INFO  [hz.ShutdownThread] {com.hazelcast.nio.TcpIpConnection} [127.0.0.1]:5701 [dev] Connection [Address[127.0.0.1]:5702] lost. Reason: Socket explicitly closed
+ INFO  [hz.ShutdownThread] {com.hazelcast.nio.TcpIpConnection} [127.0.0.1]:5701 [dev] Connection [Address[127.0.0.1]:5704] lost. Reason: Socket explicitly closed
+ INFO  [hz.ShutdownThread] {com.hazelcast.nio.TcpIpConnection} [127.0.0.1]:5701 [dev] Connection [Address[127.0.0.1]:5703] lost. Reason: Socket explicitly closed
+ INFO  [hz.ShutdownThread] {com.hazelcast.initializer} [127.0.0.1]:5701 [dev] Destroying node initializer.
+ INFO  [hz.ShutdownThread] {com.hazelcast.instance.Node} [127.0.0.1]:5701 [dev] Hazelcast Shutdown is completed in 57 ms.
