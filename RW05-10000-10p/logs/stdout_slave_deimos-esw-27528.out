@@ -1,0 +1,76 @@
+/usr/java/jdk1.7.0_21/bin/java -server -Xmx1024M -Xms1024M -Dresolve.dns=false -Djgroups.timer.num_threads=4 -verbose:gc -Xmx5000M -Xms3000M -server -XX:+UseConcMarkSweepGC -XX:+AggressiveOpts -verbose:gc -XX:ParallelGCThreads=4 -XX:NewRatio=5 -XX:SurvivorRatio=2 -Dhazelcast.operation.thread.count=4 -Djava.net.preferIPv4Stack=true -Dlog4j.file.prefix=deimos-esw-27528 -Dbind.address= -Djgroups.bind_addr= -classpath /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/activation-1.1.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-beanutils-1.8.0.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-digester-2.0.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-logging-1.1.1.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-math-1.2.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/jboss-transaction-api-1.0.1.GA.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/jcommon-1.0.15.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/jfreechart-1.0.12.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/log4j-1.2.14.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/mail-1.4.2.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/conf org.radargun.Slave -master 127.0.0.1:2103
+--------------------------------------------------------------------------------
+PerNodeRollingFileAppender::Using file prefix:deimos-esw-27528
+ INFO  [main] {org.radargun.Slave} Attempting to connect to master 127.0.0.1:2103
+ INFO  [main] {org.radargun.Slave} Successfully established connection with master at: 127.0.0.1:2103
+Loading JARS from /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar
+ INFO  [pool-1-thread-1] {org.radargun.config.AnnotatedHelper} Loading JARS from /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar
+ INFO  [pool-1-thread-1] {org.radargun.config.AnnotatedHelper} Loading JARS from /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: DestroyWrapper {enforceMemoryThrashHold=true, exitBenchmarkOnSlaveFailure=false, heapDumpDir=null, memoryThreshold=95, runOnAllSlaves=true, slaves=null, useSmartClassLoading=true }
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} Received destroy cache wrapper request from master...
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} No cache wrapper deployed on this slave, nothing to do.
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} Before executing clear, memory looks like this: Memory - free: 2,928,638 kb - max:4,906,688 kb- total:2,944,000 kb
+[Full GC 15361K->3631K(2944000K), 0.0564100 secs]
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} After executing cleanup, memory looks like this: Memory - free: 2,935,311 kb - max:4,906,688 kb- total:2,944,064 kb
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: DestroyWrapper {enforceMemoryThrashHold=true, exitBenchmarkOnSlaveFailure=false, heapDumpDir=null, memoryThreshold=95, runOnAllSlaves=true, slaves=null, useSmartClassLoading=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: StartCluster {config=ispn60-repl-sync-rc.xml, delayAfterFirstSlaveStarts=5.000 secs, delayBetweenStartingSlaves=0.500 secs, exitBenchmarkOnSlaveFailure=true, expectNumSlaves=null, mayFailOn=null, reachable=null, runOnAllSlaves=false, slaves=null, staggerSlaveStartup=true, useSmartClassLoading=true, validateCluster=true }
+ INFO  [pool-1-thread-1] {org.radargun.stages.StartClusterStage}  Startup staggering, starting 8 slaves. This is the slave with index 7. Sleeping for 8500 millis.
+ INFO  [pool-1-thread-1] {org.radargun.stages.StartClusterStage} Ack master's StartCluster stage. Local address is: /127.0.0.1. This slave's index is: 7
+ INFO  [pool-1-thread-1] {org.radargun.utils.ClassLoadHelper} Creating newInstance org.radargun.cachewrappers.Infinispan60Wrapper with classloader java.net.URLClassLoader@2e1eb2c3
+ INFO  [pool-1-thread-1] {org.radargun.cachewrappers.Infinispan60Wrapper} Cannot find any site for slave index 7
+ ERROR [pool-1-thread-1] {org.radargun.cachewrappers.Infinispan60Wrapper} Wrapper start failed.
+org.infinispan.commons.CacheConfigurationException: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[26,208]
+Message: Unexpected element '{urn:infinispan:config:5.1}infinispan'
+	at org.infinispan.configuration.parsing.ParserRegistry.parse(ParserRegistry.java:91)
+	at org.radargun.cachewrappers.Infinispan60Wrapper.createConfiguration(Infinispan60Wrapper.java:41)
+	at org.radargun.cachewrappers.InfinispanPartitionableWrapper.createCacheManager(InfinispanPartitionableWrapper.java:42)
+	at org.radargun.cachewrappers.InfinispanXSWrapper.setUpCache(InfinispanXSWrapper.java:80)
+	at org.radargun.cachewrappers.InfinispanWrapper.setUp(InfinispanWrapper.java:74)
+	at org.radargun.cachewrappers.InfinispanKillableWrapper.setUp(InfinispanKillableWrapper.java:57)
+	at org.radargun.stages.helpers.StartHelper.start(StartHelper.java:72)
+	at org.radargun.stages.StartClusterStage.executeOnSlave(StartClusterStage.java:67)
+	at org.radargun.Slave$2.run(Slave.java:103)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[26,208]
+Message: Unexpected element '{urn:infinispan:config:5.1}infinispan'
+	at org.infinispan.configuration.parsing.ParserRegistry.parseElement(ParserRegistry.java:128)
+	at org.infinispan.configuration.parsing.ParserRegistry.parse(ParserRegistry.java:112)
+	at org.infinispan.configuration.parsing.ParserRegistry.parse(ParserRegistry.java:99)
+	at org.infinispan.configuration.parsing.ParserRegistry.parse(ParserRegistry.java:86)
+	... 14 more
+ ERROR [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Issues while instantiating/starting cache wrapper
+org.infinispan.commons.CacheConfigurationException: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[26,208]
+Message: Unexpected element '{urn:infinispan:config:5.1}infinispan'
+	at org.infinispan.configuration.parsing.ParserRegistry.parse(ParserRegistry.java:91)
+	at org.radargun.cachewrappers.Infinispan60Wrapper.createConfiguration(Infinispan60Wrapper.java:41)
+	at org.radargun.cachewrappers.InfinispanPartitionableWrapper.createCacheManager(InfinispanPartitionableWrapper.java:42)
+	at org.radargun.cachewrappers.InfinispanXSWrapper.setUpCache(InfinispanXSWrapper.java:80)
+	at org.radargun.cachewrappers.InfinispanWrapper.setUp(InfinispanWrapper.java:74)
+	at org.radargun.cachewrappers.InfinispanKillableWrapper.setUp(InfinispanKillableWrapper.java:57)
+	at org.radargun.stages.helpers.StartHelper.start(StartHelper.java:72)
+	at org.radargun.stages.StartClusterStage.executeOnSlave(StartClusterStage.java:67)
+	at org.radargun.Slave$2.run(Slave.java:103)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[26,208]
+Message: Unexpected element '{urn:infinispan:config:5.1}infinispan'
+	at org.infinispan.configuration.parsing.ParserRegistry.parseElement(ParserRegistry.java:128)
+	at org.infinispan.configuration.parsing.ParserRegistry.parse(ParserRegistry.java:112)
+	at org.infinispan.configuration.parsing.ParserRegistry.parse(ParserRegistry.java:99)
+	at org.infinispan.configuration.parsing.ParserRegistry.parse(ParserRegistry.java:86)
+	... 14 more
+ INFO  [pool-1-thread-1] {org.radargun.cachewrappers.Infinispan60Wrapper} Cannot stop, previous attempt failed.
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: StartCluster {config=ispn60-repl-sync-rc.xml, delayAfterFirstSlaveStarts=5.000 secs, delayBetweenStartingSlaves=0.500 secs, exitBenchmarkOnSlaveFailure=true, expectNumSlaves=null, mayFailOn=null, reachable=null, runOnAllSlaves=false, slaves=null, staggerSlaveStartup=true, useSmartClassLoading=true, validateCluster=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [main] {org.radargun.Slave} Master shutdown!
+ INFO  [Thread-0] {org.radargun.ShutDownHook} Slave process is being shutdown
