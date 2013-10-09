@@ -1,0 +1,207 @@
+/usr/java/jdk1.7.0_21/bin/java -server -Xmx1024M -Xms1024M -Dresolve.dns=false -Djgroups.timer.num_threads=4 -verbose:gc -Xmx5000M -Xms3000M -server -XX:+UseConcMarkSweepGC -XX:+AggressiveOpts -verbose:gc -XX:ParallelGCThreads=4 -XX:NewRatio=5 -XX:SurvivorRatio=2 -Dhazelcast.operation.thread.count=4 -Djava.net.preferIPv4Stack=true -Dlog4j.file.prefix=deimos-esw-32351 -Dbind.address= -Djgroups.bind_addr= -classpath /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/activation-1.1.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-beanutils-1.8.0.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-digester-2.0.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-logging-1.1.1.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/commons-math-1.2.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/jboss-transaction-api-1.0.1.GA.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/jcommon-1.0.15.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/jfreechart-1.0.12.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/log4j-1.2.14.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/mail-1.4.2.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar:/home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/conf org.radargun.Slave -master 127.0.0.1:2103
+--------------------------------------------------------------------------------
+PerNodeRollingFileAppender::Using file prefix:deimos-esw-32351
+ INFO  [main] {org.radargun.Slave} Attempting to connect to master 127.0.0.1:2103
+ INFO  [main] {org.radargun.Slave} Successfully established connection with master at: 127.0.0.1:2103
+Loading JARS from /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar
+ INFO  [pool-1-thread-1] {org.radargun.config.AnnotatedHelper} Loading JARS from /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar
+ INFO  [pool-1-thread-1] {org.radargun.config.AnnotatedHelper} Loading JARS from /home/smf/github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/lib/radargun-framework-1.1.0-SNAPSHOT.jar
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: DestroyWrapper {enforceMemoryThrashHold=true, exitBenchmarkOnSlaveFailure=false, heapDumpDir=null, memoryThreshold=95, runOnAllSlaves=true, slaves=null, useSmartClassLoading=true }
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} Received destroy cache wrapper request from master...
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} No cache wrapper deployed on this slave, nothing to do.
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} Before executing clear, memory looks like this: Memory - free: 2,928,638 kb - max:4,906,688 kb- total:2,944,000 kb
+[Full GC 15361K->3631K(2944000K), 0.0741070 secs]
+ INFO  [pool-1-thread-1] {org.radargun.stages.DestroyWrapperStage} After executing cleanup, memory looks like this: Memory - free: 2,935,311 kb - max:4,906,688 kb- total:2,944,064 kb
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: DestroyWrapper {enforceMemoryThrashHold=true, exitBenchmarkOnSlaveFailure=false, heapDumpDir=null, memoryThreshold=95, runOnAllSlaves=true, slaves=null, useSmartClassLoading=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: StartCluster {config=ispn52-repl-sync-rc.xml, delayAfterFirstSlaveStarts=5.000 secs, delayBetweenStartingSlaves=0.500 secs, exitBenchmarkOnSlaveFailure=true, expectNumSlaves=null, mayFailOn=null, reachable=null, runOnAllSlaves=false, slaves=null, staggerSlaveStartup=true, useSmartClassLoading=true, validateCluster=true }
+ INFO  [pool-1-thread-1] {org.radargun.stages.StartClusterStage} Startup staggering, number of slaves to start is 4 This is the slave with index 0, not sleeping
+ INFO  [pool-1-thread-1] {org.radargun.stages.StartClusterStage} Ack master's StartCluster stage. Local address is: /127.0.0.1. This slave's index is: 0
+ INFO  [pool-1-thread-1] {org.radargun.utils.ClassLoadHelper} Creating newInstance org.radargun.cachewrappers.InfinispanXSWrapper with classloader java.net.URLClassLoader@3fbefe6e
+ INFO  [pool-1-thread-1] {org.radargun.cachewrappers.InfinispanXSWrapper} Cannot find any site for slave index 0
+ INFO  [pool-1-thread-1] {org.infinispan.remoting.transport.jgroups.JGroupsTransport} ISPN000078: Starting JGroups Channel
+ WARN  [pool-1-thread-1] {org.jgroups.protocols.UDP} [JGRP00014] the send buffer of socket DatagramSocket was set to 640KB, but the OS only allocated 229.38KB. This might lead to performance problems. Please set your max send buffer in the OS correctly (e.g. net.core.wmem_max on Linux)
+ WARN  [pool-1-thread-1] {org.jgroups.protocols.UDP} [JGRP00014] the receive buffer of socket DatagramSocket was set to 20MB, but the OS only allocated 229.38KB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)
+ WARN  [pool-1-thread-1] {org.jgroups.protocols.UDP} [JGRP00014] the send buffer of socket MulticastSocket was set to 640KB, but the OS only allocated 229.38KB. This might lead to performance problems. Please set your max send buffer in the OS correctly (e.g. net.core.wmem_max on Linux)
+ WARN  [pool-1-thread-1] {org.jgroups.protocols.UDP} [JGRP00014] the receive buffer of socket MulticastSocket was set to 25MB, but the OS only allocated 229.38KB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)
+ INFO  [pool-1-thread-1] {org.infinispan.remoting.transport.jgroups.JGroupsTransport} ISPN000094: Received new cluster view: [deimos-esw-47809|0] [deimos-esw-47809]
+ INFO  [pool-1-thread-1] {org.infinispan.remoting.transport.jgroups.JGroupsTransport} ISPN000079: Cache local address is deimos-esw-47809, physical addresses are [127.0.0.1:52000]
+ INFO  [pool-1-thread-1] {org.infinispan.factories.GlobalComponentRegistry} ISPN000128: Infinispan version: Infinispan 'Delirium' 5.2.6.Final
+ INFO  [pool-1-thread-1] {org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup} ISPN000107: Retrieving transaction manager Transaction: unknown
+ INFO  [pool-1-thread-1] {org.infinispan.jmx.CacheJmxRegistration} ISPN000031: MBeans were successfully registered to the platform MBean server.
+ INFO  [pool-1-thread-1] {org.radargun.cachewrappers.InfinispanXSWrapper} Using transaction manager: Transaction: unknown
+ INFO  [pool-1-thread-1] {org.radargun.cachewrappers.InfinispanXSWrapper} No RELAY2 protocol in XS wrapper
+ INFO  [pool-1-thread-1] {org.radargun.cachewrappers.InfinispanXSWrapper} JGroups version: JGroups 3.2.7.Final
+ INFO  [pool-1-thread-1] {org.radargun.cachewrappers.InfinispanXSWrapper} Using config attributes: {name=ispn52-repl-sync-rc.xml}
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=1 is not the one expected: 4
+ INFO  [Incoming-1,deimos-esw-47809] {org.infinispan.remoting.transport.jgroups.JGroupsTransport} ISPN000094: Received new cluster view: [deimos-esw-47809|1] [deimos-esw-47809, deimos-esw-45781]
+ INFO  [Incoming-3,deimos-esw-47809] {org.infinispan.remoting.transport.jgroups.JGroupsTransport} ISPN000094: Received new cluster view: [deimos-esw-47809|2] [deimos-esw-47809, deimos-esw-45781, deimos-esw-14320]
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members=3 is not the one expected: 4
+ INFO  [Incoming-4,deimos-esw-47809] {org.infinispan.remoting.transport.jgroups.JGroupsTransport} ISPN000094: Received new cluster view: [deimos-esw-47809|3] [deimos-esw-47809, deimos-esw-45781, deimos-esw-14320, deimos-esw-61031]
+ INFO  [pool-1-thread-1] {org.radargun.stages.helpers.StartHelper} Number of members is the one expected: 4
+ INFO  [pool-1-thread-1] {org.radargun.stages.StartClusterStage} Successfully started cache wrapper on slave 0: org.radargun.cachewrappers.InfinispanXSWrapper@5720be65
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: StartCluster {config=ispn52-repl-sync-rc.xml, delayAfterFirstSlaveStarts=5.000 secs, delayBetweenStartingSlaves=0.500 secs, exitBenchmarkOnSlaveFailure=true, expectNumSlaves=null, mayFailOn=null, reachable=null, runOnAllSlaves=false, slaves=null, staggerSlaveStartup=true, useSmartClassLoading=true, validateCluster=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: ClusterValidation {exitBenchmarkOnSlaveFailure=false, partialReplication=false, replicationTimeSleep=2000, replicationTryCount=60, runOnAllSlaves=false, slaves=null, useSmartClassLoading=true }
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClusterValidationStage} Number of caches that replicated here is 3
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClusterValidationStage} Replication test successfully passed. partialReplication? false, replicationCount = 3
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClusterValidationStage} Confirm phase successful.
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: ClusterValidation {exitBenchmarkOnSlaveFailure=false, partialReplication=false, replicationTimeSleep=2000, replicationTryCount=60, runOnAllSlaves=false, slaves=[ 0, 1, 2, 3 ], useSmartClassLoading=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: StressTestWarmup {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=100, numOfThreads=4, numRequests=10000, numThreads=4, numberOfAttributes=100, numberOfRequests=10000, opsCountStatusLog=100000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=50, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=null, writePercentage=20, writeTxPercentage=20 }
+ INFO  [pool-1-thread-1] {org.radargun.stages.StressTestWarmupStage} Starting StressTestWarmupStage: StressTestWarmup {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=100, numOfThreads=4, numRequests=10000, numThreads=4, numberOfAttributes=100, numberOfRequests=10000, opsCountStatusLog=100000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=50, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=null, writePercentage=20, writeTxPercentage=20 }
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Using key generator org.radargun.stressors.StringKeyGenerator, param null
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Executing: StressTestStressor{opsCountStatusLog=100000, numRequests=10000, numEntries=100, entrySize=1000, writePercentage=20, numThreads=4, cacheWrapper=org.radargun.cachewrappers.InfinispanXSWrapper@5720be65, nodeIndex=0, useTransactions=true, transactionSize=50, commitTransactions=true, durationMillis=60000}
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Cache wrapper info is: Running : 5.2.6.Final, config:ispn52-repl-sync-rc.xml, cacheName:testCache
+[GC 259695K->18013K(2944064K), 0.0471780 secs]
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Started 4 stressor threads.
+ INFO  [Stressor-0] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 1. Elapsed time: 0.002 secs. Remaining: 59.998 secs. Total: 1 mins 0 secs
+[GC 274077K->18131K(2944064K), 0.0395140 secs]
+[GC 274195K->26977K(2944064K), 0.0405790 secs]
+[GC 283041K->22185K(2944064K), 0.0416030 secs]
+[GC 278249K->21295K(2944064K), 0.0363350 secs]
+[GC 277359K->29136K(2944064K), 0.0417590 secs]
+[GC 285200K->31302K(2944064K), 0.0420250 secs]
+[GC 287366K->31434K(2944064K), 0.0416780 secs]
+[GC 287498K->25756K(2944064K), 0.0440020 secs]
+[GC 281820K->33473K(2944064K), 0.0458220 secs]
+[GC 289537K->33274K(2944064K), 0.0396120 secs]
+[GC 289338K->35847K(2944064K), 0.0431910 secs]
+[GC 291911K->24342K(2944064K), 0.0450900 secs]
+[GC 280406K->31084K(2944064K), 0.0473340 secs]
+[GC 287148K->32615K(2944064K), 0.0474310 secs]
+[GC 288679K->41788K(2944064K), 0.0696600 secs]
+[GC 297852K->26864K(2944064K), 0.0394470 secs]
+[GC 282928K->33156K(2944064K), 0.0390410 secs]
+[GC 289220K->33304K(2944064K), 0.0381160 secs]
+[GC 289368K->31594K(2944064K), 0.0431990 secs]
+ INFO  [Stressor-0] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 745714. Elapsed time: 20.002 secs. Remaining: 39.998 secs. Total: 1 mins 0 secs
+[GC 287658K->31955K(2944064K), 0.0394360 secs]
+[GC 288019K->33053K(2944064K), 0.0352670 secs]
+[GC 289117K->34387K(2944064K), 0.0369490 secs]
+[GC 290451K->32357K(2944064K), 0.0398250 secs]
+[GC 288421K->33578K(2944064K), 0.0390230 secs]
+[GC 289642K->47840K(2944064K), 0.0416790 secs]
+[GC 303904K->40497K(2944064K), 0.0378790 secs]
+[GC 296561K->36687K(2944064K), 0.0421730 secs]
+[GC 292751K->39748K(2944064K), 0.0442400 secs]
+[GC 295812K->40379K(2944064K), 0.0503850 secs]
+[GC 296443K->42441K(2944064K), 0.0528140 secs]
+[GC 298505K->44329K(2944064K), 0.0524130 secs]
+[GC 300393K->44974K(2944064K), 0.0457670 secs]
+[GC 301038K->41893K(2944064K), 0.0460900 secs]
+[GC 297957K->50225K(2944064K), 0.0531070 secs]
+[GC 306289K->45733K(2944064K), 0.0535750 secs]
+[GC 301797K->53046K(2944064K), 0.0566850 secs]
+[GC 309110K->47544K(2944064K), 0.0467750 secs]
+[GC 303608K->40778K(2944064K), 0.0467930 secs]
+[GC 296842K->44194K(2944064K), 0.0503410 secs]
+[GC 300258K->47501K(2944064K), 0.0504310 secs]
+[GC 303565K->49805K(2944064K), 0.0498620 secs]
+ INFO  [Stressor-3] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 1603900. Elapsed time: 40.014 secs. Remaining: 19.986 secs. Total: 1 mins 0 secs
+[GC 305869K->48935K(2944064K), 0.0499490 secs]
+[GC 304999K->49486K(2944064K), 0.0459480 secs]
+[GC 305550K->47655K(2944064K), 0.0490580 secs]
+[GC 303719K->52856K(2944064K), 0.0521760 secs]
+[GC 308920K->53447K(2944064K), 0.0499670 secs]
+[GC 309511K->57388K(2944064K), 0.0527630 secs]
+[GC 313452K->54845K(2944064K), 0.0504280 secs]
+[GC 310909K->48083K(2944064K), 0.0479410 secs]
+[GC 304147K->55389K(2944064K), 0.0487230 secs]
+[GC 311453K->53249K(2944064K), 0.0530880 secs]
+[GC 309313K->57561K(2944064K), 0.0484890 secs]
+[GC 313625K->59129K(2944064K), 0.0503920 secs]
+[GC 315193K->55044K(2944064K), 0.0406430 secs]
+[GC 311108K->57048K(2944064K), 0.0496810 secs]
+[GC 313112K->55968K(2944064K), 0.0502690 secs]
+[GC 312032K->57990K(2944064K), 0.0524210 secs]
+[GC 314054K->55632K(2944064K), 0.0501740 secs]
+[GC 311696K->55337K(2944064K), 0.0421770 secs]
+[GC 311401K->57242K(2944064K), 0.0440040 secs]
+[GC 313306K->58482K(2944064K), 0.0493170 secs]
+[GC 314546K->61668K(2944064K), 0.0499310 secs]
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Finished generating report. Test duration is: 1 mins 1 secs
+ INFO  [pool-1-thread-1] {org.radargun.stages.StressTestWarmupStage} The warmup took: 61 seconds.
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: StressTestWarmup {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=100, numOfThreads=4, numRequests=10000, numThreads=4, numberOfAttributes=100, numberOfRequests=10000, opsCountStatusLog=100000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=50, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=null, writePercentage=20, writeTxPercentage=20 }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: ClearClusterStage {ClearCluster {exitBenchmarkOnSlaveFailure=false, runOnAllSlaves=false, slaves=[ 0 ], useSmartClassLoading=true }
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClearClusterStage} Before executing clear, memory looks like this: Memory - free: 2,627,074 kb - max:4,906,688 kb- total:2,944,064 kb
+[Full GC 316989K->24961K(2944064K), 0.3525270 secs]
+ INFO  [pool-1-thread-1] {org.radargun.stages.ClearClusterStage} After executing cleanup, memory looks like this: Memory - free: 2,917,687 kb - max:4,906,688 kb- total:2,944,192 kb
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: ClearClusterStage {ClearCluster {exitBenchmarkOnSlaveFailure=false, runOnAllSlaves=false, slaves=[ 0 ], useSmartClassLoading=true }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Executing stage: StressTest {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=10000, numOfThreads=4, numRequests=10000000, numThreads=4, numberOfAttributes=10000, numberOfRequests=10000000, opsCountStatusLog=500000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=10000, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=true, writePercentage=1, writeTxPercentage=5 }
+ INFO  [pool-1-thread-1] {org.radargun.stages.StressTestStage} Starting StressTestStage: StressTest {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=10000, numOfThreads=4, numRequests=10000000, numThreads=4, numberOfAttributes=10000, numberOfRequests=10000000, opsCountStatusLog=500000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=10000, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=true, writePercentage=1, writeTxPercentage=5 }
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Using key generator org.radargun.stressors.StringKeyGenerator, param null
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Executing: StressTestStressor{opsCountStatusLog=500000, numRequests=10000000, numEntries=10000, entrySize=1000, writePercentage=1, numThreads=4, cacheWrapper=org.radargun.cachewrappers.InfinispanXSWrapper@5720be65, nodeIndex=0, useTransactions=true, transactionSize=10000, commitTransactions=true, durationMillis=60000}
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Cache wrapper info is: Running : 5.2.6.Final, config:ispn52-repl-sync-rc.xml, cacheName:testCache
+[GC 281153K->58507K(2944192K), 0.0509920 secs]
+[GC 314699K->85425K(2944192K), 0.0653150 secs]
+[GC 341617K->107233K(2944192K), 0.0675430 secs]
+[GC 363425K->122951K(2944192K), 0.0794990 secs]
+[GC 379143K->160083K(2944192K), 0.1072770 secs]
+[GC 416275K->180724K(2944192K), 0.0929290 secs]
+[GC 436916K->196793K(2944192K), 0.0927710 secs]
+[GC 452985K->216558K(2944192K), 0.1005820 secs]
+[GC 472750K->230909K(2944192K), 0.0975340 secs]
+[GC 487101K->246859K(2944192K), 0.1031900 secs]
+[GC 503051K->246902K(2944192K), 0.1072300 secs]
+[GC 503094K->275498K(2944192K), 0.0820590 secs]
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Started 4 stressor threads.
+ INFO  [Stressor-1] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 1. Elapsed time: 0.000 secs. Remaining: 1 mins 0 secs. Total: 1 mins 0 secs
+[GC 531690K->259244K(2944192K), 0.0813410 secs]
+[GC 515436K->270729K(2944192K), 0.0654260 secs]
+[GC 526921K->265506K(2944192K), 0.0449210 secs]
+[GC 521698K->273474K(2944192K), 0.0476520 secs]
+[GC 529666K->284930K(2944192K), 0.0493990 secs]
+[GC 541122K->289088K(2944192K), 0.0521870 secs]
+[GC 545280K->292739K(2944192K), 0.0502020 secs]
+[GC 548931K->268239K(2944192K), 0.0517380 secs]
+[GC 524431K->290741K(2944192K), 0.0520400 secs]
+[GC 546933K->300561K(2944192K), 0.0501180 secs]
+[GC 556753K->304530K(2944192K), 0.0543810 secs]
+[GC 560722K->276361K(2944192K), 0.0465270 secs]
+[GC 532553K->311733K(2944192K), 0.0547660 secs]
+[GC 567925K->288156K(2944192K), 0.0621870 secs]
+ INFO  [Stressor-3] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 5006513. Elapsed time: 20.000 secs. Remaining: 40.000 secs. Total: 1 mins 0 secs
+[GC 544348K->274405K(2944192K), 0.0543780 secs]
+[GC 530597K->286086K(2944192K), 0.0475140 secs]
+[GC 542278K->284941K(2944192K), 0.0427680 secs]
+[GC 541133K->284446K(2944192K), 0.0406830 secs]
+[GC 540638K->306792K(2944192K), 0.0381270 secs]
+[GC 562984K->290159K(2944192K), 0.0464480 secs]
+[GC 546351K->302424K(2944192K), 0.0414710 secs]
+[GC 558616K->310548K(2944192K), 0.0379920 secs]
+[GC 566740K->294271K(2944192K), 0.0439000 secs]
+[GC 550463K->318836K(2944192K), 0.0434730 secs]
+[GC 575028K->298118K(2944192K), 0.0435570 secs]
+[GC 554310K->320894K(2944192K), 0.0421720 secs]
+[GC 577086K->301496K(2944192K), 0.0425200 secs]
+[GC 557688K->320476K(2944192K), 0.0478790 secs]
+[GC 576668K->326369K(2944192K), 0.0433410 secs]
+[GC 582561K->311781K(2944192K), 0.0421970 secs]
+ INFO  [Stressor-2] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 10113403. Elapsed time: 40.000 secs. Remaining: 20.000 secs. Total: 1 mins 0 secs
+[GC 567973K->312916K(2944192K), 0.0430940 secs]
+[GC 569108K->334685K(2944192K), 0.0447660 secs]
+[GC 590866K->339235K(2944192K), 0.0421600 secs]
+[GC 595427K->320016K(2944192K), 0.0430560 secs]
+[GC 576208K->333462K(2944192K), 0.0400650 secs]
+[GC 589654K->322399K(2944192K), 0.0459070 secs]
+[GC 578591K->344878K(2944192K), 0.0504410 secs]
+[GC 601070K->327850K(2944192K), 0.0427980 secs]
+[GC 584042K->344855K(2944192K), 0.0498540 secs]
+[GC 601047K->351811K(2944192K), 0.0441170 secs]
+[GC 608003K->334941K(2944192K), 0.0456360 secs]
+[GC 591133K->353983K(2944192K), 0.0390040 secs]
+[GC 610175K->350614K(2944192K), 0.0434450 secs]
+[GC 606806K->342982K(2944192K), 0.0419300 secs]
+[GC 599174K->364332K(2944192K), 0.0446360 secs]
+ INFO  [Stressor-3] {org.radargun.stressors.StressTestStressor} Number of ops executed so far: 15431011. Elapsed time: 1 mins 0 secs. Remaining: 0.000 secs. Total: 1 mins 0 secs
+ INFO  [pool-1-thread-1] {org.radargun.stressors.StressTestStressor} Finished generating report. Test duration is: 1 mins 22 secs
+ INFO  [pool-1-thread-1] {org.radargun.stages.StressTestStage} size info: Running : 5.2.6.Final, config:ispn52-repl-sync-rc.xml, cacheName:testCache, clusterSize:4, nodeIndex:0, cacheSize: 160000
+ INFO  [pool-1-thread-1] {org.radargun.Slave} Finished stage: StressTest {bulkSize=1, cacheSpecificKeyGenerator=false, commitTransactions=true, duration=1 mins 0 secs, entrySize=1000, exitBenchmarkOnSlaveFailure=false, fixedKeys=true, generateHistogramRange=false, keyGeneratorClass=org.radargun.stressors.StringKeyGenerator, keyGeneratorParam=null, loadAllKeys=false, numEntries=10000, numOfThreads=4, numRequests=10000000, numThreads=4, numberOfAttributes=10000, numberOfRequests=10000000, opsCountStatusLog=500000, poolKeys=true, preferAsyncOperations=false, removePercentage=0, replaceInvalidPercentage=40, runOnAllSlaves=false, sharedKeys=false, sizeOfAnAttribute=1000, slaves=null, transactionSize=10000, useAtomics=false, useHistogramStatistics=false, useSimpleStatistics=true, useSmartClassLoading=true, useTransactions=true, writePercentage=1, writeTxPercentage=5 }
+ INFO  [main] {org.radargun.Slave} Ack successfully sent to the master
+ INFO  [main] {org.radargun.Slave} Master shutdown!
+ INFO  [Thread-0] {org.radargun.ShutDownHook} Slave process is being shutdown
