@@ -7,7 +7,12 @@ WORKLOAD="${1}"
 TARGET_DIR="${1}/reports"
 shift
 
-PRODUCTS=$(for product in "$@"; do
+PROD_SPEC="$@"
+if [ x"$PROD_SPEC" == x"" ]; then
+    PROD_SPEC=`cut -d',' -f1 map-products-to-labels.txt | paste -s -d ' ' -`
+fi
+
+PRODUCTS=$(for product in $PROD_SPEC; do
     if [ -a "${TARGET_DIR}/${product}.dat" ]; then
         echo "$product"
     fi
