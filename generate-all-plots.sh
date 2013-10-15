@@ -13,3 +13,8 @@ for workload in RW*-100*-10p; do
     echo "Generating plot for $workload"
     generate-plot.sh $workload $PRODUCTS
 done
+
+for workload in RW*-100*-1p; do
+    echo "Generating plot for $workload"
+    generate-plot.sh $workload $PRODUCTS
+done
