@@ -72,8 +72,8 @@ SEPARATOR="\\"
 for product in $PRODUCTS; do
 
     echo "$SEPARATOR" >> ${plotfile}
-    LABEL=`grep "${product}" map-products-to-labels.txt | cut -d',' -f2`
-    LINESTYLE=`grep "${product}" map-products-to-labels.txt | cut -d',' -f3`
+    LABEL=`grep "^${product}," map-products-to-labels.txt | cut -d',' -f2`
+    LINESTYLE=`grep "^${product}," map-products-to-labels.txt | cut -d',' -f3`
     echo -n "     '${product}.dat'	        u 1:(\$2/1000) t '${LABEL}'	     w lp ls ${LINESTYLE}" >> ${plotfile}
     SEPARATOR=", \\"
 done
