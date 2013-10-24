@@ -20,7 +20,7 @@ fi
 
 rsync -avz deimos:github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/reports/*.csv "${TARGET}/reports"
 
-rsync -avz deimos:github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/*.out deimos:github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/*.log "${TARGET}/logs"
+# rsync -avz deimos:github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/*.out deimos:github/radargun/target/distribution/RadarGun-1.1.0-SNAPSHOT/*.log "${TARGET}/logs"
 
 
 
