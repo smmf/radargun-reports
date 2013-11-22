@@ -1,10 +1,17 @@
 #!/bin/bash
 
-WTP="01 05 10 20"
-NE="10000"
-WP="1"
-P="fflf-tdmock-g2800ns-p67000ns-c64000ns"
-NODES=`seq 2 2 12`
+## function for finding a file's absolute path
+SCRIPT_DIR=
+function absname() {
+  pushd `dirname "$1"` > /dev/null
+  SCRIPT_DIR=`pwd`
+  popd > /dev/null
+  return
+}
+
+absname "$0"
+
+. ${SCRIPT_DIR}/configs.sh
 
 for wtp in $WTP; do
     for ne in $NE; do
@@ -25,12 +32,3 @@ for wtp in $WTP; do
 done
 
 
-# for i in ../../*.sh; do
-#     ln -s $i
-# done
-
-# \rm pull-from-deimos.sh
-
-# cp ../../map-products-to-labels.txt .
-
-# mkdir plots
