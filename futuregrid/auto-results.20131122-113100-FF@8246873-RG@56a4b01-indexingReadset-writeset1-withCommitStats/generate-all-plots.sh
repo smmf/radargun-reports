@@ -1,0 +1,1 @@
+../../generate-all-plots.sh
