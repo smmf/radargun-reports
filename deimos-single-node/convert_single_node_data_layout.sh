@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for bench in RW*; do
+for bench in RW* RO-*; do
     newdir="${bench}/reports"
 
     mkdir -p ${newdir}
